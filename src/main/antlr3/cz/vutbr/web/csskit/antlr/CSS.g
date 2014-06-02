@@ -263,14 +263,14 @@ import cz.vutbr.web.css.SupportedCSS;
        }
 
        // recover from unexpected EOF
-       if(token==Token.EOF_TOKEN && !ls.isBalanced()) {
+       if(token.getType()==Token.EOF && !ls.isBalanced()) {
            CSSToken t = ls.generateEOFRecover(); 
            return (Token) t;
        }
 
        // push back import stream
        // We've got EOF and have non empty stack
-       if(token==Token.EOF_TOKEN && !imports.empty()){
+       if(token.getType()==Token.EOF && !imports.empty()){
 
        	 // prepare end token 	
        	 CSSToken t = new CSSToken(IMPORT_END, ls);
@@ -378,7 +378,7 @@ import cz.vutbr.web.css.SupportedCSS;
 			state.tokenStartLine = input.getLine();
 			state.text = null;
 			if ( input.LA(1)==CharStream.EOF ) {
-				return CSSToken.EOF_TOKEN;
+				return getEOFToken();
 			}
 			try {
 				mTokens();
