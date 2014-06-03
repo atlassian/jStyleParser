@@ -12,7 +12,7 @@
 
 	<groupId>net.sf.cssbox</groupId>
 	<artifactId>jstyleparser</artifactId>
-	<version>1.17-SNAPSHOT</version>
+	<version>1.17-atlassian-1-SNAPSHOT</version>
 	<name>jStyleParser</name>
 	<description>jStyleParser is a CSS parser written in Java. It has its own application interface that is designed to allow an efficient CSS processing in Java and mapping the values to the Java data types. It parses CSS 2.1 style sheets into structures that can be efficiently assigned to DOM elements. It is intended be the primary CSS parser for the CSSBox library. While handling errors, it is user agent conforming according to the CSS specification.</description>
 	<url>http://cssbox.sourceforge.net/jstyleparser</url>
@@ -95,8 +95,32 @@
 				</excludes>
 			</resource> -->
 		</resources>
-		
+
 		<plugins>
+            <plugin>
+                <!--
+                   - Patch for generated class CSSLexer.java that changes it to store its 10MB DFA array in a non-static
+                   - field. This allows the memory to be garbage collected when not in use.
+                  -->
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-patch-plugin</artifactId>
+                <version>1.1.1</version>
+                <configuration>
+                    <strip>1</strip>
+                    <patchTargetDir>${project.build.directory}</patchTargetDir>
+                    <patches>
+                        <patch>CSSLexer-dfa-large-arrays.patch</patch>
+                    </patches>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>patch</id>
+                        <goals>
+                            <goal>apply</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
 			<plugin>
                 <groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>

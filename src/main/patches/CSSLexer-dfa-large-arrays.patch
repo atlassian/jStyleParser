@@ -1,64 +1,29 @@
 --- target/generated-sources/antlr3/cz/vutbr/web/csskit/antlr/CSSLexer.java	2013-09-16 15:25:14.000000000 +1000
 +++ target/generated-sources/antlr3/cz/vutbr/web/csskit/antlr/CSSLexer.java	2013-09-16 15:25:39.000000000 +1000
-@@ -5401,14 +5401,15 @@
-     static final char[] DFA34_max = DFA.unpackEncodedStringToUnsignedChars(DFA34_maxS);
-     static final short[] DFA34_accept = DFA.unpackEncodedString(DFA34_acceptS);
-     static final short[] DFA34_special = DFA.unpackEncodedString(DFA34_specialS);
--    static final short[][] DFA34_transition;
+@@ -5560,14 +5560,14 @@
+ 	static final char[] DFA45_max = DFA.unpackEncodedStringToUnsignedChars(DFA45_maxS);
+ 	static final short[] DFA45_accept = DFA.unpackEncodedString(DFA45_acceptS);
+ 	static final short[] DFA45_special = DFA.unpackEncodedString(DFA45_specialS);
+-	static final short[][] DFA45_transition;
  
--    static {
-+    static short[][] DFA34_transition() {
-         int numStates = DFA34_transitionS.length;
--        DFA34_transition = new short[numStates][];
-+        short[][] DFA34_transition = new short[numStates][];
-         for (int i=0; i<numStates; i++) {
-             DFA34_transition[i] = DFA.unpackEncodedString(DFA34_transitionS[i]);
-         }
-+
-+        return DFA34_transition;
-     }
+-	static {
++	static short[][] DFA45_transition() {
+ 		int numStates = DFA45_transitionS.length;
+-		DFA45_transition = new short[numStates][];
++        short[][] DFA45_transition = new short[numStates][];
+ 		for (int i=0; i<numStates; i++) {
+ 			DFA45_transition[i] = DFA.unpackEncodedString(DFA45_transitionS[i]);
+ 		}
++        return DFA45_transition;
+ 	}
  
-     class DFA34 extends DFA {
-@@ -5422,7 +5423,7 @@
-             this.max = DFA34_max;
-             this.accept = DFA34_accept;
-             this.special = DFA34_special;
--            this.transition = DFA34_transition;
-+            this.transition = DFA34_transition();
-         }
-         public String getDescription() {
-             return "1501:1: fragment NUMBER_MACR : ( ( '0' .. '9' )+ | ( ( '0' .. '9' )* '.' ( '0' .. '9' )+ ) );";
-@@ -6013,14 +6014,14 @@
-     static final char[] DFA43_max = DFA.unpackEncodedStringToUnsignedChars(DFA43_maxS);
-     static final short[] DFA43_accept = DFA.unpackEncodedString(DFA43_acceptS);
-     static final short[] DFA43_special = DFA.unpackEncodedString(DFA43_specialS);
--    static final short[][] DFA43_transition;
- 
--    static {
-+    static short[][] DFA43_transition() {
-         int numStates = DFA43_transitionS.length;
--        DFA43_transition = new short[numStates][];
-+        short[][] DFA43_transition = new short[numStates][];
-         for (int i=0; i<numStates; i++) {
-             DFA43_transition[i] = DFA.unpackEncodedString(DFA43_transitionS[i]);
-         }
-+        return DFA43_transition;
-     }
- 
-     class DFA43 extends DFA {
-@@ -6034,7 +6035,7 @@
-             this.max = DFA43_max;
-             this.accept = DFA43_accept;
-             this.special = DFA43_special;
--            this.transition = DFA43_transition;
-+            this.transition = DFA43_transition();
-         }
-         public String getDescription() {
-             return "1:1: Tokens : ( T__99 | T__100 | T__101 | IDENT | CHARSET | IMPORT | MEDIA | PAGE | MARGIN_AREA | VIEWPORT | FONTFACE | ATKEYWORD | CLASSKEYWORD | STRING | HASH | INDEX | NUMBER | PERCENTAGE | DIMENSION | URI | UNIRANGE | CDO | CDC | SEMICOLON | COLON | COMMA | QUESTION | PERCENT | EQUALS | SLASH | GREATER | LESS | LCURLY | RCURLY | APOS | QUOT | LPAREN | RPAREN | LBRACE | RBRACE | EXCLAMATION | TILDE | MINUS | PLUS | ASTERISK | S | COMMENT | SL_COMMENT | EXPRESSION | FUNCTION | INCLUDES | DASHMATCH | STARTSWITH | ENDSWITH | CONTAINS | INVALID_TOKEN );";
-@@ -6143,4 +6144,4 @@
-     }
-  
- 
--}
-\ No newline at end of file
-+}
+ 	protected class DFA45 extends DFA {
+@@ -5581,7 +5581,7 @@
+ 			this.max = DFA45_max;
+ 			this.accept = DFA45_accept;
+ 			this.special = DFA45_special;
+-			this.transition = DFA45_transition;
++			this.transition = DFA45_transition();
+ 		}
+ 		@Override
+ 		public String getDescription() {
